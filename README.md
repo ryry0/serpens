@@ -25,6 +25,10 @@ To-do:
     -v <dir>:/app binds <dir> to the "/app" directory
 
 * Need to set up docker compatibility with WSL 1.
+    * follow most of this [link](https://nicnetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), particularly the step where you export the docker server line.
+    * you have to make a symbolic link. /c -> /mnt/c
+    * when you do bind mounts, you need to use the symbolic link /c/..../dir.
+
 * Need to forward an X server port and install an x client on the host to use x
 programs.
 * Test image with numpy/matplotlib/umap/ipython notebooks
