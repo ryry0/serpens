@@ -14,20 +14,26 @@ delete it from this list.
 Seems like they like to make the working directory in images either directly in
 the root dir or some folder in root dir.
 
-To-do:
-* Learn how to do named mount
+Named mounts in `docker run`:
     * `docker volume create <name>`
     * `docker volume inspect <name>`
     * volumes are stored in the WSL VM.
 
-* Learn how to do bind mount
+Bind mounts in `docker run`:
     * `-w /app` sets working directory to "/app"
     * `-v <dir>:/app` binds <dir> to the "/app" directory
 
-* Need to set up docker compatibility with WSL 1.
+See image history:
+* `docker image history <image>`  shows the layers of the image.
+
+To-do:
+* ~~Learn how to do named mount~~
+* ~~Learn how to do bind mount~~
+* ~~Need to set up docker compatibility with WSL 1.~~
     * follow most of this [link](https://nicnetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), particularly the step where you export the docker server line.
     * you have to make a symbolic link. `/c -> /mnt/c`
     * when you do bind mounts, you need to use the symbolic link `/c/..../dir`.
+    * Docker scan does not seem to  work within the wsl 1 environment.
 
 * Need to forward an X server port and install an x client on the host to use x
 programs.
