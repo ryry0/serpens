@@ -63,7 +63,4 @@ To-do:
     * when you do bind mounts, you need to use the symbolic link `/c/..../dir`.
     * Docker scan does not seem to  work within the wsl 1 environment.
 
-* Need to forward an X server port and install an x client on the host to use x
-programs.
-* Test image with numpy/matplotlib/umap/ipython notebooks
 
