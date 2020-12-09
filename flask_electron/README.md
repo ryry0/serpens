@@ -1,9 +1,9 @@
 How to use:
 
-1. Build the image
-    `docker build -t flask-electron-base .`
+1. Build the image. `cd` to this directory and run
+    * `docker build -t flask-electron-base .`
 2. Run the image interactively, mount current directory so files are shared:
-    `docker run -it -v "$(pwd):/app" flask-electron-base`
+    * `docker run -it -v "$(pwd):/app" flask-electron-base`
 3. This drops you into a bash shell in the folder `/app`
 
 To run jupyter notebook:
