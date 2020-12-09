@@ -11,6 +11,12 @@ To run jupyter notebook:
 2. `jupyter notebook --ip='0.0.0.0'` The IP flag allows browsers outside the
 container to connect. Point browser to `localhost:8888`.
 
+To run electron
+    Use npm start
+    configured package.json to set start command to `electron . --no-sandbox` <=
+    need to remove no-sandbox command later? or configure the docker image to
+    log in as non-root....
+
 TODO:
 * Figure out how to set a persistent password.
 
@@ -26,8 +32,11 @@ Instructions for GUI for Mac:
 TODO
 
 * ~~Create an image with both node and python~~
+* create an electron/flask app based on this
+  [link](https://www.ahmedbouchefra.com/connect-python-3-electron-nodejs-build-desktop-apps/)
 * Need to forward an X server port and install an x client on the host to use x
 programs.
+* fix installing the node modules.
 
 * Load image with 
     * ~~numpy/matplotlib/umap/~~
