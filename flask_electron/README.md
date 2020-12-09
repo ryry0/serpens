@@ -31,5 +31,5 @@ programs.
 
 * Load image with 
     * ~~numpy/matplotlib/umap/~~
-    * ipython notebooks
+    * ~~ipython notebooks~~
     * ~~electron, two js, bootstrap~~

@@ -22,6 +22,7 @@ Docker run
 * `-d` flag allows it to run in the background, detached from your current
   terminal. Omitting this will have the non-interactive output appear as a
   child process of your terminal.
+* `-p 8888:8888` flag maps ports from `host:container`, in this case 8888
 
 To get results that are written to stdout/stderr, you need to use 
 * `docker logs [image name]`.
@@ -47,7 +48,8 @@ Named mounts in `docker run`:
 
 Bind mounts in `docker run`:
 * `-w /app` sets working directory to "/app"
-* `-v <dir>:/app` binds <dir> to the "/app" directory
+* `-v <dir>:/app` binds host <dir> to the "/app" directory
+* anything that existed in that directory before the mount is "gone".
 
 See image history:
 * `docker image history <image>`  shows the layers of the image.
