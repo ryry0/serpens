@@ -2,7 +2,7 @@
 
 Playground to mess around with python, electron, containerized.
 
-In the dockerfile:
+Dockerfile syntax:
 * `RUN`: Runs a command. Has a shell form and exec form, exec preferred. Can
   have multiple RUN commands in a Dockerfile.
 * `CMD`: Only one of these allowed in a Dockerfile
