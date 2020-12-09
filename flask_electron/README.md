@@ -4,6 +4,15 @@ How to use:
     `docker build -t flask-electron-base .`
 2. Run the image interactively, mount current directory so files are shared:
     `docker run -it -v "$(pwd):/app" flask-electron-base`
+3. This drops you into a bash shell in the folder `/app`
+
+To run jupyter notebook:
+1. `docker run -it -p 8888:8888 -v "$(pwd):/app" flask-electron-base` to forward port 8888 to host.
+2. `jupyter notebook --ip='0.0.0.0'` The IP flag allows browsers outside the
+container to connect. Point browser to `localhost:8888`.
+
+TODO:
+* Figure out how to set a persistent password.
 
 Instructions for GUI for Windows/WSL:
 
