@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
         nodejs=12.19.0~dfsg-1 \
         npm=7.1.0+ds-1 \
         python3.8=3.8.6-1 \
+        python3.8-dev=3.8.6-1 \
         python3-distutils=3.8.6-1
 
 # Get pip
@@ -18,20 +19,15 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.8 get-pip.py
 RUN rm get-pip.py
 
-# install node libraries
-
-#RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-#RUN bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
-#RUN rm Miniconda3-latest-Linux-x86_64.sh
-#ENV PATH=/miniconda/bin:${PATH}
-#RUN conda update -y conda
-
 # install python libraries
-# copy the dependencies file to the working directory
-# COPY requirements.txt .
+# copy the dependencies file to the working directory and install dependencies
+COPY requirements.txt .
 
-# install dependencies
-# RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt
+
+# install node libraries
+COPY package-lock.json package.json .
+RUN npm install
 
 # copy the content of the local src directory to the working directory
 # COPY src/ .
