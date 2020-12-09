@@ -7,7 +7,7 @@ WORKDIR /app
 # install base packages
 RUN apt-get update && apt-get install -y \
         wget=1.20.3-1+b3 \
-        llvm=1:9.0-49.1 \
+        llvm=1:11.0-51 \
         nodejs=12.19.0~dfsg-1 \
         npm=7.1.0+ds-1 \
         python3.8=3.8.6-1 \
