@@ -2,24 +2,11 @@ How to use:
 
 1. Build the image. `cd` to this directory and run
     * `docker build -t flask-electron-base .`
-2. Run the image interactively, mount current directory so files are shared:
-    * `docker run -it -v "$(pwd):/app" flask-electron-base`
-3. This drops you into a bash shell in the folder `/app`, if you mount the
-   directory, you may have to run `npm install` again.
-
-To run jupyter notebook:
-1. `docker run -it -p 8888:8888 -v "$(pwd):/app" flask-electron-base` to forward port 8888 to host.
-2. `jupyter notebook --ip='0.0.0.0'` The IP flag allows browsers outside the
-container to connect. Point browser to `localhost:8888`.
-
-To run electron
-    Use npm start
-    configured package.json to set start command to `electron . --no-sandbox` <=
-    need to remove no-sandbox command later? or configure the docker image to
-    log in as non-root....
-
-TODO:
-* Figure out how to set a persistent password.
+2. Run the image interactively, mount src directory so source files are shared:
+    * `docker run -it -v "$(pwd)/src:/app/src" flask-electron-base`
+    * need to add correct flag for x11 forwarding as detailed below.
+3. This drops you into a bash shell in the folder `/app`
+4. Run `npm start`.
 
 Instructions for GUI for Windows/WSL:
 1. Install VcXsrv and run it with default settings. Allow through firewall
@@ -30,13 +17,29 @@ TODO:
 * failed to load driver: swrast error
 
 Instructions for GUI for Mac:
-* [link
-1](https://calbertts.medium.com/developing-electron-apps-in-macos-afd21b4a59e3#.avdge04d6)
-* [link 2](https://blog.jessfraz.com/post/docker-containers-on-the-desktop/)
-* [link
-3](https://medium.com/@SaravSun/running-gui-applications-inside-docker-containers-83d65c0db110)
 * [Running Desktop Apps in
   Docker](https://medium.com/better-programming/running-desktop-apps-in-docker-43a70a5265c4)
+* [link
+2](https://calbertts.medium.com/developing-electron-apps-in-macos-afd21b4a59e3#.avdge04d6)
+* [link 3](https://blog.jessfraz.com/post/docker-containers-on-the-desktop/)
+* [link
+4](https://medium.com/@SaravSun/running-gui-applications-inside-docker-containers-83d65c0db110)
+
+Other notes: To run electron
+* Use npm start
+* configured package.json to set start command to `electron . --no-sandbox` <=
+    need to remove no-sandbox command later? or configure the docker image to
+    log in as non-root....
+
+To run jupyter notebook:
+1. `docker run -it -p 8888:8888 -v "$(pwd)/src:/app/src" flask-electron-base` to forward port 8888 to host.
+2. `jupyter notebook --ip='0.0.0.0'` The IP flag allows browsers outside the
+container to connect. Point browser to `localhost:8888`.
+
+
+TODO:
+* Figure out how to set a persistent password.
+
 
 TODO
 
