@@ -41,10 +41,10 @@ Instructions for GUI for Mac:
 TODO
 
 * ~~Create an image with both node and python~~
-* create an electron/flask app based on this
-  [link](https://www.ahmedbouchefra.com/connect-python-3-electron-nodejs-build-desktop-apps/)
-* Need to forward an X server port and install an x client on the host to use x
-programs.
+* ~~create an electron/flask app based on this
+  [link](https://www.ahmedbouchefra.com/connect-python-3-electron-nodejs-build-desktop-apps/)~~
+* ~~Need to forward an X server port and install an x client on the host to use x
+programs.~~
 * fix installing the node modules.
 
 * Load image with 
