@@ -4,7 +4,8 @@ How to use:
     * `docker build -t flask-electron-base .`
 2. Run the image interactively, mount current directory so files are shared:
     * `docker run -it -v "$(pwd):/app" flask-electron-base`
-3. This drops you into a bash shell in the folder `/app`
+3. This drops you into a bash shell in the folder `/app`, if you mount the
+   directory, you may have to run `npm install` again.
 
 To run jupyter notebook:
 1. `docker run -it -p 8888:8888 -v "$(pwd):/app" flask-electron-base` to forward port 8888 to host.

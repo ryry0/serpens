@@ -22,7 +22,7 @@ startPythonServer();
 function onclick() {
         /* use REST api to send data to python backend. Is this performant?
         especially with a lot of data? */
-        fetch(`http://0.0.0.0:5000/${input.value}`).then((data)=>{
+        fetch(`http://127.0.0.1:5000/${input.value}`).then((data)=>{
                 return data.text();
 
         }).then((text)=>{
@@ -40,3 +40,22 @@ btn.addEventListener('click', () => {
 });
 
 btn.dispatchEvent(new Event('click'))
+
+// Two js
+var elem = document.getElementById('twojs');
+var params = { width: 285, height: 200};
+var two = new Two(params).appendTo(elem);
+
+var circle = two.makeCircle(72, 100, 50);
+var rect = two.makeRectangle(213, 100, 100, 100);
+
+circle.fill = '#FF8000';
+circle.stroke = 'orangered';
+circle.linewidth=5;
+
+rect.fill = 'rgb(9, 200, 255)';
+rect.opacity = 0.75;
+rect.noStroke();
+
+two.update();
+

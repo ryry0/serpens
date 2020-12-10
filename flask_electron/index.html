@@ -3,13 +3,20 @@
         <head>
                 <meta charset="UTF-8">
                 <title> Calling Python from Electron</title>
+                <script src="./node_modules/two.js/src/two.js"></script>
         </head>
         <body>
                 <h1>This is an html string</h1>
                 <p>The next span tag will have python generated text</p>
+                </br>
                 <span id="pythonspan"></span>
                 <input id="input" value=""></input>
                 <input id="btn" type="button" value="Python button"></input>
+                </br>
+                <p>When you click the python button, python will append the textbox contents to hello</p>
+                </br>
+                <p>div below is for two js</p>
+                <div id="twojs"></div>
                 <script src="./renderer.js"></script>
         </body>
 </html>
