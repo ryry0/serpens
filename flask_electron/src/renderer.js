@@ -10,7 +10,7 @@ function startPythonServer() {
                 pythonPath: '/usr/bin/python3.8' //may need to change this if using outside docker?
         };
 
-        PythonShell.run('server.py', options, function (err, results) {
+        PythonShell.run('src/server.py', options, function (err, results) {
                 if (err) throw err;
                 //results is array of messages collected during execution
                 console.log('response: ', results);
