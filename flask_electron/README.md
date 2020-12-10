@@ -21,6 +21,12 @@ TODO:
 * Figure out how to set a persistent password.
 
 Instructions for GUI for Windows/WSL:
+1. Install VcXsrv and run it with default settings. Allow through firewall
+2. `docker run -it -e DISPLAY=host.docker.internal:0 flask-electron-base`
+3. `npm start` inside the container
+
+TODO:
+* failed to load driver: swrast error
 
 Instructions for GUI for Mac:
 * [link
@@ -28,6 +34,8 @@ Instructions for GUI for Mac:
 * [link 2](https://blog.jessfraz.com/post/docker-containers-on-the-desktop/)
 * [link
 3](https://medium.com/@SaravSun/running-gui-applications-inside-docker-containers-83d65c0db110)
+* [Running Desktop Apps in
+  Docker](https://medium.com/better-programming/running-desktop-apps-in-docker-43a70a5265c4)
 
 TODO
 

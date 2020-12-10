@@ -10,7 +10,7 @@ const createWindow = () => {
                 width:800, 
                 height:600,
                 webPreferences: {
-                        nodeIntegration:true
+                        nodeIntegration:true //enable this flag to allow 'require' to be used in client js
                 }
         })
         mainWindow.loadURL(require('url').format({
