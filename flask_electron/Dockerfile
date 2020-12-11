@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
         python3-distutils=3.8.6-1 \
         libnss3=2:3.59-1 \
         libgbm1=20.2.3-1 \
-        libasound2=1.2.3.2-1+b1
+        libasound2=1.2.4-1
 
 # Get pip
 RUN wget https://bootstrap.pypa.io/get-pip.py
@@ -29,7 +29,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # install node libraries
-COPY package-lock.json package.json .
+COPY package-lock.json package.json ./
 RUN npm install
 
 # copy the content of the local src directory to the working directory
