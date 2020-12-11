@@ -1,4 +1,4 @@
-# set base imaage (host OS). Use debian for stability and.
+# set base imaage (host OS). Use debian for stability.
 FROM debian:bullseye-slim
 
 # set the working directory in the container
@@ -31,9 +31,6 @@ RUN pip install -r requirements.txt
 # install node libraries
 COPY package-lock.json package.json ./
 RUN npm install
-
-# copy the content of the local src directory to the working directory
-# COPY src/ .
 
 # command to run on container start
 # CMD [ "python", "./server.py" ]
