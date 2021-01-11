@@ -1,4 +1,4 @@
-# set base imaage (host OS). Use debian for stability.
+# set base image (host OS). Use debian for stability.
 FROM debian:bullseye-slim
 
 # set the working directory in the container
