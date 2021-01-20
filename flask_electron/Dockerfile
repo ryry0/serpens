@@ -1,31 +1,39 @@
 # set base image (host OS). Use debian for stability.
-FROM debian:bullseye-slim
+FROM python:3.8-buster
 
 # set the working directory in the container
 WORKDIR /app
 
 # install base packages
 RUN apt-get update && apt-get install -y \
-        wget=1.20.3-1+b3 \
-        llvm=1:11.0-51 \
-        nodejs=12.19.0~dfsg-1 \
-        npm=7.1.0+ds-1 \
-        python3.8=3.8.6-1 \
-        python3.8-dev=3.8.6-1 \
-        python3-distutils=3.8.6-1 \
-        libnss3=2:3.59-1 \
-        libgbm1=20.2.3-1 \
-        libasound2=1.2.4-1
+        wget \
+        nodejs \
+        npm \
+        libnss3 \
+        libgbm1 \
+        libasound2 \
+        libatk-bridge2.0 \
+        libx11-xcb-dev \
+        libgtk-3-0
+
 
 # Get pip
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3.8 get-pip.py
-RUN rm get-pip.py
+#RUN wget https://bootstrap.pypa.io/get-pip.py
+#RUN python3.8 get-pip.py
+#RUN rm get-pip.py
 
 # install python libraries
 # copy the dependencies file to the working directory and install dependencies
 COPY requirements.txt .
 
+# Install python libraries:
+# jupyter:              jupyter notebooks
+# flask:                flask webserver
+# umap-learn[plot]:     umap and plotting dependencies
+# nltk:                 natural language processing toolkit
+# flask-socketio:       websocket communication to frontend
+# torch:                pytorch ML librs
+# transformers:         NLP libs
 RUN pip install -r requirements.txt
 
 # install node libraries
@@ -34,3 +42,4 @@ RUN npm install
 
 # command to run on container start
 # CMD [ "python", "./server.py" ]
+CMD [ "bash" ]
