@@ -33,6 +33,7 @@ COPY requirements.txt .
 # umap-learn[plot]:     umap and plotting dependencies
 # nltk:                 natural language processing toolkit
 # flask-socketio:       websocket communication to frontend
+# gevent:               websocket dep
 # torch:                pytorch ML librs
 # transformers:         NLP libs
 RUN pip install -r requirements.txt
