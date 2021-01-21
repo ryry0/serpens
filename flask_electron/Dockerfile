@@ -37,6 +37,9 @@ COPY requirements.txt .
 # transformers:         NLP libs
 RUN pip install -r requirements.txt
 
+# update NPM
+RUN npm install npm@latest -g 
+
 # install node libraries
 # bootstrap:    Nice HTML5 UI
 # electron:     Modern browser-powered desktop app
