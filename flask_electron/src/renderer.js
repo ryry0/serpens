@@ -7,7 +7,7 @@ function startPythonServer() {
 
         let options = {
                 mode: 'text',
-                pythonPath: '/usr/bin/python3.8' //may need to change this if using outside docker?
+                pythonPath: '/usr/local/bin/python3.8' //may need to change this if using outside docker?
         };
 
         PythonShell.run('src/server.py', options, function (err, results) {
