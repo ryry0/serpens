@@ -30,10 +30,10 @@ COPY requirements.txt .
 # jupyter:              jupyter notebooks
 # flask:                flask webserver
 # flask-cors:           flask cross-origin resource sharing
+# flask-socketio:       websocket communication to frontend
+# gevent-websocket:     websocket dep
 # umap-learn[plot]:     umap and plotting dependencies
 # nltk:                 natural language processing toolkit
-# flask-socketio:       websocket communication to frontend
-# gevent:               websocket dep
 # torch:                pytorch ML librs
 # transformers:         NLP libs
 RUN pip install -r requirements.txt
