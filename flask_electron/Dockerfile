@@ -38,6 +38,13 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # install node libraries
+# bootstrap:    Nice HTML5 UI
+# electron:     Modern browser-powered desktop app
+# python-shell: Python interop
+# two.js:       Render SVG
+# jquery:       bootstrap peer dep
+# popper.js:    bootstrap peer dep
+# socketio:     socket communication with python backend.
 COPY package-lock.json package.json ./
 RUN npm install
 
