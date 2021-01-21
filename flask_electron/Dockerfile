@@ -29,6 +29,7 @@ COPY requirements.txt .
 # Install python libraries:
 # jupyter:              jupyter notebooks
 # flask:                flask webserver
+# flask-cors:           flask cross-origin resource sharing
 # umap-learn[plot]:     umap and plotting dependencies
 # nltk:                 natural language processing toolkit
 # flask-socketio:       websocket communication to frontend
