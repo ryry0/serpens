@@ -1,8 +1,12 @@
 let input = document.querySelector('#input')
 let pythonspan = document.querySelector('#pythonspan')
+let socket_pythonspan = document.querySelector('#socket_pythonspan')
 let btn = document.querySelector('#btn')
+let socketiobtn = document.querySelector('#socketiobtn')
 
-function startPythonServer() {
+
+/**** START PYTHON SERVER ***********/
+//function startPythonServer() {
         var { PythonShell } = require('python-shell');
 
         let options = {
@@ -10,16 +14,38 @@ function startPythonServer() {
                 pythonPath: '/usr/local/bin/python3.8' //may need to change this if using outside docker?
         };
 
-        PythonShell.run('src/server.py', options, function (err, results) {
+        shell = PythonShell.run('src/server.py', options, function (err, results) {
                 if (err) throw err;
                 //results is array of messages collected during execution
                 console.log('response: ', results);
         });
-}
 
-startPythonServer();
+        //get messages sent through stdout/stderr
+        shell.on('message', function (message) {
+                console.log('message: ', message);
+        });
 
-function onclick() {
+        shell.on('stderr', function (message) {
+                console.log('stderr: ', message);
+        });
+//}
+
+//startPythonServer();
+
+/**** INIT SOCKETIO ***/
+var socket = io('http://localhost:5000');
+
+socket.on('connect', function () {
+        console.log("connected to python backend");
+});
+
+socket.on('hello', function () {
+        console.log("hello from backend");
+});
+
+
+/**** REST API HANDLERS ***********/
+function onclickREST() {
         /* use REST api to send data to python backend. Is this performant?
         especially with a lot of data? */
         fetch(`http://127.0.0.1:5000/${input.value}`).then((data)=>{
@@ -33,15 +59,36 @@ function onclick() {
         })
 }
 
-
-
 btn.addEventListener('click', () => {
-        onclick();
+        onclickREST();
 });
 
-btn.dispatchEvent(new Event('click'))
+// btn.dispatchEvent(new Event('click'))
 
-// Two js
+/***** SOCKET API HANDLERS **********/
+function onclickSocket() {
+        input_text = input.value
+        socket.emit('frontend message', {data: input_text})
+        /*
+        console.log('hhhhh');
+        shell.end(function (err, code, signal) {
+                if (err) throw err;
+                console.log('exit code: ', code);
+                console.log('signal: ', signal);
+                console.log('finished');
+        });
+        console.log('fffffin');
+        */
+}
+
+
+socketiobtn.addEventListener('click', () => {
+        onclickSocket();
+});
+
+// socketiobtn.dispatchEvent(new Event('click'))
+
+/************* Two js *****************/
 var elem = document.getElementById('twojs');
 var params = { width: 285, height: 200};
 var two = new Two(params).appendTo(elem);

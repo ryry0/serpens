@@ -9,14 +9,18 @@
                 <h1>This is an html string</h1>
                 <p>The next span tag will have python generated text</p>
                 </br>
+                </br>
+                <p>When you click either python button, python will append the textbox contents to 'hello'</p>
+                </br>
                 <span id="pythonspan"></span>
                 <input id="input" value=""></input>
                 <input id="btn" type="button" value="Python button"></input>
-                </br>
-                <p>When you click the python button, python will append the textbox contents to hello</p>
-                </br>
+                <p>The next span tag will have python-socketio generated text</p>
+                <span id="socket_pythonspan"></span>
+                <input id="socketiobtn" type="button" value="Python socket.io button"></input>
                 <p>div below is for two js</p>
                 <div id="twojs"></div>
+                <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
                 <script src="./renderer.js"></script>
         </body>
 </html>
