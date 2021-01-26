@@ -18,14 +18,14 @@ datashape==0.5.2
 decorator==4.4.2
 defusedxml==0.6.0
 distributed==2021.1.0
+dnspython==1.16.0
 entrypoints==0.3
+eventlet==0.30.0
 filelock==3.0.12
 Flask==1.1.2
 Flask-Cors==3.0.10
 Flask-SocketIO==5.0.1
 fsspec==0.8.5
-gevent==21.1.2
-gevent-websocket==0.10.1
 greenlet==1.0.0
 HeapDict==1.0.1
 holoviews==1.14.1
