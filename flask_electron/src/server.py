@@ -25,6 +25,7 @@ socketio = SocketIO(server, cors_allowed_origins="*") #, logger=True, engineio_l
 @socketio.on('frontend message')
 def handle_frontend_message(json):
     print('received json: ' + str(json), flush=True)
+    emit('python message', {'data' : (json['data'] + "hello")});
 
 @socketio.on('connect')
 def handle_connect():

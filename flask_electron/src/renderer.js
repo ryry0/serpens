@@ -43,6 +43,12 @@ socket.on('hello', function () {
         console.log("hello from backend");
 });
 
+socket.on('python message', function (data) {
+        socket_pythonspan.textContent = data.data;
+        console.log(data);
+        console.log("received message");
+});
+
 
 /**** REST API HANDLERS ***********/
 function onclickREST() {
